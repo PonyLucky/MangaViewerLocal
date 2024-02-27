@@ -164,11 +164,11 @@ Get the chapter at the specified index.
 
 # Returns
   - The chapter at the specified index. If the index is out of range,
-    it will return an empty chapter.
+    it will return nil.
 */
 func (m *Manga) GetChapter(index int) *Chapter {
 	if index < 0 || index >= m.GetNumberOfChapters() {
-		return &Chapter{}
+		return nil
 	}
 	return &(*m.GetChapters())[index]
 }

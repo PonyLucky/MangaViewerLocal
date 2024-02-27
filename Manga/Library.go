@@ -71,10 +71,13 @@ Get specific manga from the library.
 - index: The index of the manga in the library.
 
 # Returns
-  - The manga at the given index.
+  - The manga at the given index. If the index is out of range, it will return nil.
 */
 func (l *Library) GetManga(index int) *Manga {
-	return &l.Mangas[index]
+	if index < 0 || index >= len(l.Mangas) {
+		return nil
+	}
+	return &(*l.GetMangas())[index]
 }
 
 /*
